@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block start %}
+    <a href="service">service</a>||
+    <a href="contact">Contact</a>
+    <h2>This is my Index Page</h2>
+
+    <table class="container table">
+        <tr>
+            <th>S.no</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Vote</th>
+        </tr>
+        {% for people in peoples %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+
+            <td>
+                {% if people.Name == 'Abdullah' %}
+                    Graduate
+                {% else %}
+                {{people.Name}}
+                {% endif %}
+            </td>
+            <td>{{people.Age}}</td>
+
+            <td>
+                {% if people.Age >= 18 %}
+                👍
+                {% else %}
+                👎
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock  %}
